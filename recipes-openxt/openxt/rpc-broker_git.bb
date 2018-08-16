@@ -1,6 +1,6 @@
 DESCRIPTION = "RPC Broker"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=4ce87f3facb6f911c142c8bef9bfb380"
 DEPENDS = "json-c libwebsockets libv4v dbus libxml2"
 
 PV = "0+git${SRCPV}"
