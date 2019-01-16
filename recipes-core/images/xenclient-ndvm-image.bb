@@ -51,8 +51,9 @@ IMAGE_INSTALL = " \
     libargo \
     libargo-bin \
     dbus \
-    xenclient-dbusbouncer \
+    rpc-broker \
     networkmanager \
+    rpc-broker-ndvm-config \
     xenclient-toolstack \
     linux-firmware-iwlwifi \
     linux-firmware-bnx2 \
