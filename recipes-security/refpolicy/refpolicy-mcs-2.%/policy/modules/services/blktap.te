@@ -60,6 +60,9 @@ init_daemon_domain(tapback_t, tapback_exec_t)
 # tapback local policy
 #
 
+#
+allow tapback_t fixed_disk_device_t:blk_file { read write open getattr };
+#
 allow tapback_t self:unix_dgram_socket { create connect write };
 allow tapback_t self:fifo_file { read write };
 allow tapback_t self:process { signal };
