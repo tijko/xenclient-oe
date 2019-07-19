@@ -178,6 +178,7 @@ do_install() {
 
 }
 
+RDEPENDS_${PN}-base= "${PN}-scripts-block"
 RDEPENDS_${PN}-base_remove = "\
     ${PN}-blktap \
     ${PN}-libblktapctl \
