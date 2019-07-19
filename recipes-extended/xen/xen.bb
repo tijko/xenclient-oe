@@ -16,6 +16,7 @@ PACKAGES += " \
     ${PN}-libxentoolcore \
     ${PN}-libxentoolcore-dev \
     ${PN}-xen-shim \
+    ${PN}-base \
     "
 
 PACKAGES_remove = " \
@@ -178,7 +179,6 @@ do_install() {
 
 }
 
-RDEPENDS_${PN}-base= "${PN}-scripts-block"
 RDEPENDS_${PN}-base_remove = "\
     ${PN}-blktap \
     ${PN}-libblktapctl \
