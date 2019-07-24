@@ -10,13 +10,14 @@ SRC_URI_append = "\
     file://xenstored.initscript \
 "
 
+
+
 PACKAGES += " \
     ${PN}-toolstack-headers \
     ${PN}-xenstored-c \
     ${PN}-libxentoolcore \
     ${PN}-libxentoolcore-dev \
     ${PN}-xen-shim \
-    ${PN}-base \
     "
 
 PACKAGES_remove = " \
@@ -35,8 +36,6 @@ PACKAGES_remove = " \
     ${PN}-libxlutil-dev \
     ${PN}-xl \
     ${PN}-xenstored \
-    ${PN}-xencommons \
-    ${PN}-base \
     ${PN}-devd \
     "
 
@@ -172,11 +171,6 @@ do_install() {
     rm -rf ${D}/${bindir}/xen-cpuid
     rm -rf ${D}/${sysconfdir}/init.d/xencommons
     rm -rf ${D}/${sysconfdir}/init.d/xendriverdomain
-    rm -rf ${D}/${sysconfdir}/xen/scripts/colo-proxy-setup
-    rm -rf ${D}/${sysconfdir}/xen/scripts/launch-xenstore
-    rm -rf ${D}/${sysconfdir}/xen/scripts/block-dummy
-    rm -rf ${D}/${sysconfdir}/default/xencommons
-
 }
 
 RDEPENDS_${PN}-base_remove = "\

@@ -37,6 +37,9 @@ DEPENDS += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-blktap', 'blktap3', d)} \
     libnl \
     "
+RDEPENDS_${PN} = " \
+    xen-base \
+    "
 
 RDEPENDS_${PN}-base_remove = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', '', '${PN}-blktap ${PN}-libblktapctl ${PN}-libvhd', d)} \
