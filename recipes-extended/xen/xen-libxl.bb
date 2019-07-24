@@ -51,6 +51,10 @@ SRC_URI_append = " \
     file://xl.conf \
     "
 
+RDEPENDS_xen-libxl-xl = "\
+    ${PN}-scripts-block \
+    "
+    
 PACKAGES = " \
     xen-xl \
     xen-libxl-dev \

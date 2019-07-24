@@ -171,10 +171,6 @@ do_install() {
     rm -rf ${D}/${bindir}/xen-cpuid
     rm -rf ${D}/${sysconfdir}/init.d/xencommons
     rm -rf ${D}/${sysconfdir}/init.d/xendriverdomain
-    rm -rf ${D}/${sysconfdir}/xen/scripts/colo-proxy-setup
-    rm -rf ${D}/${sysconfdir}/xen/scripts/launch-xenstore
-    rm -rf ${D}/${sysconfdir}/xen/scripts/block-dummy
-    rm -rf ${D}/${sysconfdir}/default/xencommons
 
 }
 
