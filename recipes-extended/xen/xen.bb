@@ -166,6 +166,35 @@ do_install() {
         -i ${D}${sysconfdir}/init.d/xenstored.${PN}-xenstored-c
 
     # These files are not packaged, removing them to silence QA warnings
+    VOLATILE_DIRS=" \
+        ${localstatedir}/run/xenstored \
+        ${localstatedir}/run/xend \
+        ${localstatedir}/run/xend/boot \
+        ${localstatedir}/run/xen \
+        ${localstatedir}/log/xen \
+        ${localstatedir}/lock/xen \
+        ${localstatedir}/lock/subsys \
+        ${localstatedir}/lib/xen \
+        "
+
+    # install volatiles using populate_volatiles mechanism
+    install -d ${D}${sysconfdir}/default/volatiles
+    for i in $VOLATILE_DIRS; do
+        echo "d root root 0755 $i none"  >> ${D}${sysconfdir}/default/volatiles/99_xen
+    done
+
+    # workaround for xendomains script which searchs sysconfig if directory exists
+    install -d ${D}${sysconfdir}/sysconfig
+    ln -sf ${sysconfdir}/default/xendomains ${D}${sysconfdir}/sysconfig/xendomains
+
+    # systemd
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'true', 'false', d)}; then
+        # install volatiles using systemd tmpfiles.d
+        install -d ${D}${sysconfdir}/tmpfiles.d
+        for i in $VOLATILE_DIRS; do
+            echo "d $i 0755 root root - -"  >> ${D}${sysconfdir}/tmpfiles.d/xen.conf
+        done
+    fi
     #   sbindir == /usr/sbin, bindir == /usr/bin, sysconfig == /etc
     rm -rf ${D}/${sbindir}/xen-livepatch
     rm -rf ${D}/${bindir}/xen-cpuid

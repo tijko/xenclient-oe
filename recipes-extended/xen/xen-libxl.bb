@@ -50,7 +50,6 @@ SRC_URI_append = " \
     file://xen-init-dom0.initscript \
     file://xl.conf \
     "
-
 PACKAGES = " \
     xen-xl \
     xen-libxl-dev \
@@ -106,6 +105,10 @@ CC_FOR_OCAML="${TARGET_PREFIX}gcc"
 INITSCRIPT_PACKAGES = "xen-xl"
 INITSCRIPT_NAME_xen-xl = "xen-init-dom0"
 INITSCRIPT_PARAMS_xen-xl = "defaults 21"
+
+RDEPENDS_xen-xl += " \
+    xen-scripts-block \
+"
 
 do_configure_prepend() {
 	#remove optimizations in the config files
