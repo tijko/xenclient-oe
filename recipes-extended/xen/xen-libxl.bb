@@ -38,6 +38,10 @@ DEPENDS += " \
     libnl \
     "
 
+RDEPENDS_xen-xl += " \
+    xen-scripts-block \
+"
+
 RDEPENDS_${PN}-base_remove = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', '', '${PN}-blktap ${PN}-libblktapctl ${PN}-libvhd', d)} \
     "

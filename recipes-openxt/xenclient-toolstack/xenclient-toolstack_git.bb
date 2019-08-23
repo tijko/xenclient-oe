@@ -10,7 +10,7 @@ DEPENDS_append_xenclient-nilfvm += " ${@deb_bootstrap_deps(d)} "
 inherit autotools-brokensep ocaml findlib
 inherit ${@"xenclient-simple-deb"if(d.getVar("MACHINE",1)=="xenclient-nilfvm")else("null")}
 
-PACKAGES = "${PN}-dbg ${PN}-doc ${PN}-locale ${PN}-dev ${PN}-staticdev ${PN} \
+PACKAGES = "${PN}-dbg ${PN}-doc ${PN}-locale ${PN}-dev ${PN}-staticdev ${PN} ${PN}-test-block \
             ${PN}-libs-dbg ${PN}-libs-staticdev ${PN}-libs-dev ${PN}-libs \
             "
 # This is a little hybrid between usual package and findlib installation.
@@ -20,6 +20,11 @@ FILES_${PN} = " \
     ${bindir} \
     ${sysconfdir} \
 "
+
+FILES_${PN}-test-block = "\
+    ${sysconfdir}/xen/scripts \
+"
+
 FILES_${PN}-dbg += " \
     /usr/src/debug \
 "
@@ -87,6 +92,7 @@ do_compile_xenclient-nilfvm() {
 do_install() {
         oe_runmake DESTDIR=${D} V=1 install
         rm -f ${D}/etc/xen/scripts/vif
+        rm -rf ${D}/etc/xen/scripts/
 
         install -d ${D}/etc/xen/scripts
         install -m 0755 ${WORKDIR}/vif ${D}/etc/xen/scripts/vif
