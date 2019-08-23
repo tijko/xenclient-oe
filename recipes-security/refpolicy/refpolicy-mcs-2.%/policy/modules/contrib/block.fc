@@ -1,0 +1,1 @@
+/etc/xen/scripts/block 		-- 	gen_context(system_u:object_r:udev_t, s0-s0:c0.c1023)
