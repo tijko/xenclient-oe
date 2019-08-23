@@ -94,6 +94,7 @@ SRC_URI += " \
     file://policy/modules/system/xc-installer.fc \
     file://policy/modules/system/xc-installer.if \
     file://policy/modules/system/xc-installer.te \
+    file://policy/modules/contrib/block.fc \
 "
 # Patches.
 SRC_URI += " \
