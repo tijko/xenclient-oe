@@ -40,6 +40,7 @@ DEPENDS += " \
 
 RDEPENDS_xen-xl += " \
     xen-scripts-block \
+    perl \
 "
 
 RDEPENDS_${PN}-base_remove = " \
