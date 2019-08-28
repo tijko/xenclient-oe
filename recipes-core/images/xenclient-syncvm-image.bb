@@ -20,6 +20,8 @@ export IMAGE_BASENAME = "xenclient-syncvm-image"
 COMPATIBLE_MACHINE = "(xenclient-syncvm)"
 
 INITSCRIPT_REMOVE = " \
+    finish.sh \
+    rmnologin.sh \
     urandom \
 "
 
@@ -37,7 +39,6 @@ IMAGE_INSTALL = "\
     openssh \
     wget \
     sync-client \
-    ifplugd \
     xenclient-syncvm-tweaks \
     ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-blktap', 'blktap3', d)} \
 "
