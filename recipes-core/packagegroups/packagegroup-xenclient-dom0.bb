@@ -120,6 +120,7 @@ RDEPENDS_${PN} = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-blktap xen-libblktapctl xen-libvhd', 'blktap3 tapback', d)} \
     pesign \
     ipxe \
+    gdb \
 "
 
 # OE upgrade - temporarly disabled:
