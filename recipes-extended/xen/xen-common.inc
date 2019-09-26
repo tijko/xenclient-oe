@@ -101,6 +101,7 @@ SRC_URI_append = " \
     file://argo-quiet-xsm-check-during-init.patch \
     file://libxl-seabios-ipxe.patch \
     file://memory-scrub-on-domain-shutdown.patch \
+    file://argo-debug.patch \
 "
 
 COMPATIBLE_HOST = 'i686-oe-linux|(x86_64.*).*-linux|aarch64.*-linux'
