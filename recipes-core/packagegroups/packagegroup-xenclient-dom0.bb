@@ -90,6 +90,7 @@ RDEPENDS_${PN} = " \
     usb-modeswitch \
     upgrade-db \
     rpc-broker \
+    valgrind \
     rpc-broker-dom0-config \
     dbd \
     xenclient-language-sync \
