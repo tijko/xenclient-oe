@@ -12,6 +12,8 @@ DEPENDS_append_class-target += " \
 "
 FILESEXTRAPATHS_prepend := "${THISDIR}/patches:"
 
+EXTRA_OECONF += "--enable-verbose-mode"
+
 SRC_URI += " \
     file://0001-Make-the-default-DBus-reply-timeout-configurable.patch \
     file://add-domid-authentication.patch \
