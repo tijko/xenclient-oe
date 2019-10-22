@@ -1,0 +1,18 @@
+diff --git a/xen/common/argo.c b/xen/common/argo.c
+index 13052b9239..b2d629d56f 100644
+--- a/xen/common/argo.c
++++ b/xen/common/argo.c
+@@ -2033,11 +2033,13 @@ sendv(struct domain *src_d, xen_argo_addr_t *src_addr,
+                                         src_id.domain_id);
+     if ( !ring_info )
+     {
++        /*
+         gprintk(XENLOG_ERR,
+                 "argo: vm%u connection refused, src (vm%u:%x) dst (vm%u:%x)\n",
+                 current->domain->domain_id, src_id.domain_id, src_id.aport,
+                 dst_addr->domain_id, dst_addr->aport);
+ 
++        */
+         ret = -ECONNREFUSED;
+     }
+     else
